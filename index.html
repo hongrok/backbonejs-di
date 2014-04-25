@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+    <meta charset="UTF-8">
+    <title>Backbone DI Sample</title>
+</head>
+<body>
+<div id="duke">
+    <div data-app-name="duke" data-app-class="js/Juggler" data-app-element="true"></div>
+    <div data-app-name="sowol" data-app-class="js/Sowol" data-app-element="[data-app-name=poeticDuke]"></div>
+
+    <div data-app-name="duke2" data-app-class="js/Juggler" data-app-lazyload="true" data-app-element="true"></div>
+    <div data-app-name="poeticDuke" data-app-class="js/PoeticJuggler" data-app-lazyload="true" data-app-element="true"></div>
+    <button action="loadDuke2">load duke2</button>&nbsp;<button action="loadPoeticDuke">load poeticDuke</button>
+</div>
+
+</body>
+<script src="lib/require.js"></script>
+<script src="js/require.config.js"></script>
+<script>
+
+    require([
+        "js/Main"
+    ], function(Main){
+        new Main({
+            el : "#duke"
+        });
+    });
+
+</script>
+</html>
